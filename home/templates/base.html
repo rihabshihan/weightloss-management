@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Set the entire body background to black and text color to white */
+        body {
+            background-color: #000000; /* Black background */
+            color: white; /* White text */
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .navbar-custom, .footer-custom {
+            background-color: #121412; /* Slightly lighter black background for navbar and footer */
+        }
+
+        .navbar-custom .navbar-brand {
+            color: rgb(157, 157, 157); /* White text for brand */
+            font-family: 'Arial', sans-serif; /* Modern, clean font */
+            font-weight: bold; 
+            font-style: italic; /* Make brand text bold */
+            font-size: 25px;
+            padding: 10px 20px; /* Increase font size */
+      
+        }
+
+        .navbar-custom .navbar-brand:hover {
+            color: #f8f9fa; /* Light text on hover */
+            text-decoration: none; /* Remove underline on hover */
+        }
+
+        .navbar-custom .nav-link {
+            color: white; /* White text for nav links */
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: #f8f9fa; /* Light text on hover */
+        }
+
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28155, 155, 155, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+
+        #togbtn {
+            background-color: whitesmoke;
+        }
+
+        /* Ensure the content container stretches to fill the available space */
+        .container {
+            flex: 1;
+        }
+
+        /* Add padding for the content areas */
+        .hero-section, .features-section {
+            padding: 50px 0;
+        }
+
+        /* Ensure that footer sticks at the bottom */
+        footer {
+            position: relative;
+            background-color: #121412;
+            color: white;
+        }
+
+        .footer-custom {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <a class="navbar-brand" href="#">LeanLogic</a>
+        <button class="navbar-toggler" id="togbtn" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'about' %}">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'adWeight' %}">Add Your Weight</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'weight_list' %}">Recent Weights</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'addedWeight' %}">Detail</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'weight_loss_calculator' %}">Calculator</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer-custom py-3">
+        <div class="container text-center">
+            <p>&copy; 2024 Track Your Weight. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

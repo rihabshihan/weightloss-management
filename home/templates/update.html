@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}
+Login
+{% endblock %}
+
+{% block content %}
+
+<div class="container vh-100 d-flex justify-content-center align-items-center">
+    <div class="w-50">
+        <h1 class="my-4 text-center">Update Weight Entry</h1>
+        <form method="POST" action="{% url 'update' form.instance.pk %}">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.non_field_errors }}
+                {% for field in form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {% render_field field class="form-control" %}
+                        {{ field.errors }}
+                    </div>
+                {% endfor %}
+            </div>
+            <button class="btn btn-success btn-block" type="submit">Update</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

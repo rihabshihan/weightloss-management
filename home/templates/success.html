@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}
+Weight Added Successfully
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">Success!</h4>
+        <p>{{ success }}</p>
+        <hr>
+        <p class="mb-0">You can now go back to the <a href="{% url 'home' %}" class="alert-link">home page</a> or <a href="{% url 'adWeight' %}" class="alert-link">add more weight entries</a>.</p>
+    </div>
+</div>
+{% endblock %}

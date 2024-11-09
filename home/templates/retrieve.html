@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+
+{% block title %}
+Details
+{% endblock %}
+
+{% block content %}
+<!-- Heading style -->
+<h1 class="text-center text-white">Added Weight</h1>
+
+<!-- Table styling -->
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th class="text-white">ID</th>
+            <th class="text-white">Weight</th>
+            <th class="text-white">Date</th>
+            <th colspan="2" class="text-white">Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for x in weight_list %}
+        <tr>
+            <td class="text-white">{{ x.id }}</td>
+            <td class="text-white">{{ x.weight }}</td>
+            <td class="text-white">{{ x.date }}</td>
+            <td><a href="{% url 'update' x.id %}" class="btn btn-success">Edit</a></td>
+            <td><a href="{% url 'delete' x.id %}" class="btn btn-danger">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
